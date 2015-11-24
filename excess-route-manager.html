@@ -828,10 +828,10 @@ setting unless you get conflicts
       var routeParams = {};
       for (var i=1; i<match.length; i++) {
         if (this.regexKeys[i-1].name) {
-          routeParams[this.regexKeys[i-1].name] = match[i];
+          routeParams[this.regexKeys[i-1].name] = decodeURIComponent(match[i]);
         }
         else {
-          routeParams[i-1] = match[i];  // anonymous parameters
+          routeParams[i-1] = decodeURIComponent(match[i]);  // anonymous parameters
         }
       }
       return routeParams;
