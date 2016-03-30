@@ -659,6 +659,7 @@ setting unless you get conflicts
     },
 
     _setRouteFromLocation: function() {
+      var event = new Event('route-set');
       var path = this._extractLocationPath();
       // console.log('_setRouteFromLocation', path);
       if (!path) {
@@ -676,6 +677,7 @@ setting unless you get conflicts
           }
         );
         RouterState.startTransition(transition);
+        window.dispatchEvent(event);
       }
       else {
         console.warn('no matching routes found in popstate');

@@ -261,8 +261,19 @@ How would you use this in Polymer Starter Kit?
      * @param {object} detail
      * @param {object} detail.activationParams
      */
+    
+    /**
+     * Fired after properties have been set.
+     *
+     * @event properties-changed
+     */
 
     created: function() {
+      window.addEventListener('route-set', function() {
+        if (this.routeParams) {
+          this.fire('properties-changed');
+        }
+      }.bind(this));
       this._boundWillDeactivate = this._willDeactivate.bind(this);
       this._boundDeactivate = this._deactivate.bind(this);
       this._boundWillActivate = this._willActivate.bind(this);
