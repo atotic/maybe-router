@@ -37,7 +37,7 @@ var PATH_REGEXP = new RegExp([
  * Parse a string for the raw tokens.
  *
  * @param  {String} str
- * @return {Array}
+ * @return {!Array}
  */
 function parse (str) {
   var tokens = []
@@ -191,7 +191,7 @@ function tokensToFunction (tokens) {
  * Escape a regular expression string.
  *
  * @param  {String} str
- * @return {String}
+ * @return {string}
  */
 function escapeString (str) {
   return str.replace(/([.+*?=^!:${}()[\]|\/])/g, '\\$1')
@@ -201,7 +201,7 @@ function escapeString (str) {
  * Escape the capturing group by escaping special characters and meaning.
  *
  * @param  {String} group
- * @return {String}
+ * @return {string}
  */
 function escapeGroup (group) {
   return group.replace(/([=!:$\/()])/g, '\\$1')
@@ -212,7 +212,7 @@ function escapeGroup (group) {
  *
  * @param  {RegExp} re
  * @param  {Array}  keys
- * @return {RegExp}
+ * @return {!RegExp}
  */
 function attachKeys (re, keys) {
   re.keys = keys
@@ -223,7 +223,7 @@ function attachKeys (re, keys) {
  * Get the flags for a regexp from the options.
  *
  * @param  {Object} options
- * @return {String}
+ * @return {string}
  */
 function flags (options) {
   return options.sensitive ? '' : 'i'
@@ -304,7 +304,7 @@ function stringToRegexp (path, keys, options) {
  * @param  {Array}  tokens
  * @param  {Array}  keys
  * @param  {Object} options
- * @return {RegExp}
+ * @return {!RegExp}
  */
 function tokensToRegExp (tokens, options) {
   options = options || {}
